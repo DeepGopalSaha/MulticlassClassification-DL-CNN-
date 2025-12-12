@@ -106,3 +106,91 @@ This means:
 - Add batch size (32) to total images
 
 - Accuracy = correct / total
+## 8. Accuracy metric
+Main Metric:
+Final Validation Accuracy: 95%
+
+The following table shows precision, recall, and F1-score for each class.
+These metrics help understand which classes performed better or worse.
+
+Precision = how many predictions of a class is correct? (more precision less FALSE POSITIVES)
+Recall = Out of all actual images of this class, how many did the model detect correctly? (more recall less FALSE NEGATIVES)
+| Class        | Precision | Recall | F1-Score | Support |
+|--------------|-----------|--------|----------|---------|
+| cane         | 0.93      | 0.98   | 0.95     | 973     |
+| cavallo      | 0.92      | 0.92   | 0.92     | 525     |
+| elefante     | 0.95      | 0.97   | 0.96     | 290     |
+| farfalla     | 0.96      | 0.96   | 0.96     | 423     |
+| gallina      | 0.99      | 0.96   | 0.97     | 620     |
+| gatto        | 0.97      | 0.92   | 0.94     | 334     |
+| mucca        | 0.93      | 0.84   | 0.88     | 374     |
+| pecora       | 0.88      | 0.93   | 0.90     | 364     |
+| ragno        | 0.98      | 0.98   | 0.98     | 965     |
+| scoiattolo   | 0.98      | 0.96   | 0.97     | 373     |
+|              |           |        |          |         |
+| **accuracy** | -         | -      | **0.95** | 5241    |
+| macro avg    | 0.95      | 0.94   | 0.94     | 5241    |
+| weighted avg | 0.95      | 0.95   | 0.95     | 5241    |
+
+
+##  Class-Wise Performance Summary
+
+---
+
+## Best and Worst by Precision
+
+**Precision = When the model predicts a class, how often is it correct?**
+
+###  Best Precision → **gallina (0.99)**  
+- When the model predicts **“gallina”**, it is correct **99% of the time**.  
+- This means **almost zero false positives** for this class.
+
+###  Worst Precision → **pecora (0.88)**  
+- The model sometimes predicts **“pecora”** when the image belongs to another animal.  
+- This indicates **more false positives** for the pecora class.
+
+---
+
+##  Best and Worst by Recall
+
+**Recall = Out of all actual images of a class, how many did the model detect correctly?**
+
+###  Best Recall → **ragno (0.98)**  
+- The model correctly identifies **almost all spider images**.  
+- Very few spiders were missed.  
+- Indicates **excellent sensitivity** for this class.
+
+###  Worst Recall → **mucca (0.84)**  
+- The model struggles to detect cow images accurately.  
+- **16% of cow images were misclassified** as other animals.  
+- This makes **mucca the hardest class** for the model.
+
+---
+
+## 🎯 Best and Worst by F1-Score
+
+**F1 = Balanced measure of precision + recall**
+
+### Best F1-Score → **ragno (0.98)**  
+- High precision and high recall.  
+- Very reliable predictions for spider images.
+
+### Worst F1-Score → **mucca (0.88)**  
+- Lower precision and recall combined.  
+- Consistent difficulty in predicting cow images.  
+- Indicates the model is **least confident and least accurate** for this class.
+
+---
+
+## Final Interpretation Summary
+
+### Worst-Performing Class → **mucca (cow)**  
+- Lowest recall (0.84)  
+- Lowest F1-score (0.88)  
+- Model frequently **confuses cows with other animals**
+
+### Best-Performing Classes → **gallina (hen)** & **ragno (spider)**  
+- **gallina** has the **highest precision (0.99)** → extremely accurate predictions  
+- **ragno** has the **highest F1-score (0.98)** and excellent recall → consistently strong performance  
+
+---
