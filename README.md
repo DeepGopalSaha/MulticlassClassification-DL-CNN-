@@ -111,10 +111,11 @@ Main Metric:
 Final Validation Accuracy: 95%
 
 The following table shows precision, recall, and F1-score for each class.
-These metrics help understand which classes performed better or worse.
 
-Precision = how many predictions of a class is correct? (more precision less FALSE POSITIVES)
-Recall = Out of all actual images of this class, how many did the model detect correctly? (more recall less FALSE NEGATIVES)
+- Precision = how many classes were correctly predicted? (more precision less FALSE POSITIVES)
+- Recall =  how many classes were correctly detected? (more recall less FALSE NEGATIVES)
+- F1 Score= Balanced measure of precision + recall
+ 
 | Class        | Precision | Recall | F1-Score | Support |
 |--------------|-----------|--------|----------|---------|
 | cane         | 0.93      | 0.98   | 0.95     | 973     |
@@ -139,8 +140,6 @@ Recall = Out of all actual images of this class, how many did the model detect c
 
 ## Best and Worst by Precision
 
-**Precision = When the model predicts a class, how often is it correct?**
-
 ###  Best Precision → **gallina (0.99)**  
 - When the model predicts **“gallina”**, it is correct **99% of the time**.  
 - This means **almost zero false positives** for this class.
@@ -152,8 +151,6 @@ Recall = Out of all actual images of this class, how many did the model detect c
 ---
 
 ##  Best and Worst by Recall
-
-**Recall = Out of all actual images of a class, how many did the model detect correctly?**
 
 ###  Best Recall → **ragno (0.98)**  
 - The model correctly identifies **almost all spider images**.  
@@ -167,9 +164,7 @@ Recall = Out of all actual images of this class, how many did the model detect c
 
 ---
 
-## 🎯 Best and Worst by F1-Score
-
-**F1 = Balanced measure of precision + recall**
+## Best and Worst by F1-Score
 
 ### Best F1-Score → **ragno (0.98)**  
 - High precision and high recall.  
@@ -185,9 +180,9 @@ Recall = Out of all actual images of this class, how many did the model detect c
 ## Final Interpretation Summary
 
 ### Worst-Performing Class → **mucca (cow)**  
-- Lowest recall (0.84)  
+- Lowest recall (0.84)  -> hard to detect (more false negatives) than other classes
 - Lowest F1-score (0.88)  
-- Model frequently **confuses cows with other animals**
+- Model frequently **confuses cows with other animals** 
 
 ### Best-Performing Classes → **gallina (hen)** & **ragno (spider)**  
 - **gallina** has the **highest precision (0.99)** → extremely accurate predictions  
